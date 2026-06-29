@@ -104,152 +104,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================
-  // 4. REAL-TIME IMPORT CALCULATION LOGIC
-  // ==========================================
-  const calcForm = document.getElementById('import-calculator-form');
-  const priceInput = document.getElementById('vehicle-price');
-  const countrySelect = document.getElementById('sourcing-country');
-  const categorySelect = document.getElementById('vehicle-category');
-
-  // Outputs elements
-  const resFob = document.getElementById('res-fob');
-  const resShipping = document.getElementById('res-shipping');
-  const resDuty = document.getElementById('res-duty');
-  const resAgency = document.getElementById('res-agency');
-  const resTotal = document.getElementById('res-total');
-  const resDeposit = document.getElementById('res-deposit');
-  const resInst1 = document.getElementById('res-inst1');
-  const resInst2 = document.getElementById('res-inst2');
-
-  const formatCurrency = (val) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD'
-    }).format(val);
-  };
-
-  const calculateEstimate = () => {
-    const fobPrice = parseFloat(priceInput.value) || 0;
-    const country = countrySelect.value;
-    const category = categorySelect.value;
-    
-    // Get shipping method
-    const shippingMethod = document.querySelector('input[name="shipping-method"]:checked').value;
-
-    // 1. Calculate Shipping Cost dynamically by country & method
-    let baseShipping = 0;
-    if (shippingMethod === 'roro') {
-      switch(country) {
-        case 'japan': baseShipping = 1600; break;
-        case 'uk': baseShipping = 2000; break;
-        case 'safrica': baseShipping = 950; break;
-        case 'singapore': baseShipping = 1750; break;
-        default: baseShipping = 1600;
-      }
-    } else { // Container
-      switch(country) {
-        case 'japan': baseShipping = 2800; break;
-        case 'uk': baseShipping = 3200; break;
-        case 'safrica': baseShipping = 1600; break;
-        case 'singapore': baseShipping = 3000; break;
-        default: baseShipping = 2800;
-      }
-    }
-
-    // 2. Estimate ZIMRA Customs Duty based on category
-    // Duties are calculated on CIF (Cost, Insurance & Freight)
-    const cifValue = fobPrice + baseShipping;
-    let dutyRate = 0.40; // Default sedan
-    
-    switch(category) {
-      case 'sedan': dutyRate = 0.40; break;
-      case 'suv': dutyRate = 0.45; break;
-      case 'doublecab': dutyRate = 0.35; break;
-      case 'truck': dutyRate = 0.25; break;
-    }
-    const estimatedDuty = cifValue * dutyRate;
-
-    // 3. Agency Clearing & Admin Fees
-    // Flat rate plus variable percentage
-    const agencyFee = (cifValue * 0.02) + 450;
-
-    // 4. Totals
-    const totalCost = fobPrice + baseShipping + estimatedDuty + agencyFee;
-    const depositAmount = totalCost * 0.50;
-    const installmentAmount = (totalCost - depositAmount) / 2;
-
-    // Render to elements
-    resFob.textContent = formatCurrency(fobPrice);
-    resShipping.textContent = formatCurrency(baseShipping);
-    resDuty.textContent = formatCurrency(estimatedDuty);
-    resAgency.textContent = formatCurrency(agencyFee);
-    resTotal.textContent = formatCurrency(totalCost);
-    
-    resDeposit.textContent = formatCurrency(depositAmount);
-    resInst1.textContent = formatCurrency(installmentAmount);
-    resInst2.textContent = formatCurrency(installmentAmount);
-  };
-
-  // Attach event listeners for inputs
-  priceInput.addEventListener('input', calculateEstimate);
-  countrySelect.addEventListener('change', calculateEstimate);
-  categorySelect.addEventListener('change', calculateEstimate);
-  document.querySelectorAll('input[name="shipping-method"]').forEach(radio => {
-    radio.addEventListener('change', calculateEstimate);
-  });
-
-  // Run initial calculation on load
-  calculateEstimate();
-
-  // ==========================================
-  // 5. BOOK SERVICE REDIRECT LINKING
-  // ==========================================
-  const serviceDropdown = document.getElementById('contact-service');
-  const bookServiceBtns = document.querySelectorAll('.btn-book-service');
-
-  bookServiceBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const selectedService = btn.getAttribute('data-service');
-      if (selectedService && serviceDropdown) {
-        // Find matching option and select it
-        for (let i = 0; i < serviceDropdown.options.length; i++) {
-          if (serviceDropdown.options[i].text.includes(selectedService)) {
-            serviceDropdown.selectedIndex = i;
-            break;
-          }
-        }
-      }
-    });
-  });
-
-  // ==========================================
-  // 6. MODAL VISIBILITY & APPLICATION FORM
+  // 4. MODAL VISIBILITY & APPLICATION FORM
   // ==========================================
   const modal = document.getElementById('import-quote-modal');
   const closeModalBtn = document.getElementById('close-modal-btn');
   const openModalBtns = document.querySelectorAll('.open-import-modal');
-  const modalCarInput = document.getElementById('modal-car-model');
-  const modalPriceInput = document.getElementById('modal-price');
-  const modalCountrySelect = document.getElementById('modal-country');
 
   const openModal = () => {
     modal.classList.add('open');
     document.body.style.overflow = 'hidden'; // Stop page scrolling
-    
-    // Auto-populate modal fields if coming from calculator
-    const currentPrice = priceInput.value;
-    const currentCountry = countrySelect.value;
-    const currentCategoryText = categorySelect.options[categorySelect.selectedIndex].text.split(' (')[0];
-    
-    if (modalCarInput && !modalCarInput.value) {
-      modalCarInput.value = `${currentCategoryText} Sourced`;
-    }
-    if (modalPriceInput) {
-      modalPriceInput.value = currentPrice;
-    }
-    if (modalCountrySelect) {
-      modalCountrySelect.value = currentCountry;
-    }
   };
 
   const closeModal = () => {

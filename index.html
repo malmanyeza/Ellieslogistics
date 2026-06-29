@@ -76,7 +76,6 @@
           <a href="#home" class="nav-item active" id="nav-home">Home</a>
           <a href="#about" class="nav-item" id="nav-about">About Us</a>
           <a href="#services" class="nav-item" id="nav-services">Services</a>
-          <a href="#calculator" class="nav-item" id="nav-calc">Calculator</a>
           <a href="#contact" class="nav-item" id="nav-contact">Contact Us</a>
         </nav>
 
@@ -85,7 +84,7 @@
           <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
             <i class="fa-solid fa-moon"></i>
           </button>
-          <a href="#calculator" class="btn-primary nav-cta" id="btn-nav-quote">Get a Quote</a>
+          <a href="#" class="btn-primary nav-cta open-import-modal" id="btn-nav-quote">Get a Quote</a>
           <!-- Mobile Menu Toggle Button -->
           <button id="mobile-menu-btn" class="mobile-btn" aria-label="Open Navigation Menu">
             <i class="fa-solid fa-bars"></i>
@@ -99,9 +98,8 @@
       <a href="#home" class="mobile-nav-item" id="mob-home">Home</a>
       <a href="#about" class="mobile-nav-item" id="mob-about">About Us</a>
       <a href="#services" class="mobile-nav-item" id="mob-services">Services</a>
-      <a href="#calculator" class="mobile-nav-item" id="mob-calc">Calculator</a>
       <a href="#contact" class="mobile-nav-item" id="mob-contact">Contact Us</a>
-      <a href="#calculator" class="btn-primary mobile-cta" id="mob-btn-quote">Get a Quote</a>
+      <a href="#" class="btn-primary mobile-cta open-import-modal" id="mob-btn-quote">Get a Quote</a>
     </div>
 
     <!-- MAIN SECTIONS -->
@@ -143,7 +141,7 @@
             </div>
 
             <div class="hero-actions">
-              <a href="#calculator" class="btn-primary btn-lg" id="btn-hero-start">Start Importing</a>
+              <a href="#" class="btn-primary btn-lg open-import-modal" id="btn-hero-start">Start Importing</a>
               <a href="#services" class="btn-secondary btn-lg" id="btn-hero-explore">Our Services</a>
             </div>
           </div>
@@ -248,26 +246,9 @@
       <!-- About Us Section -->
       <section id="about" class="about-section">
         <div class="container about-container">
-          <!-- Left Graphics Grid -->
+          <!-- Left Graphics (Now Images instead of stats) -->
           <div class="about-graphics">
-            <div class="stats-grid">
-              <div class="stat-card">
-                <span class="stat-num" id="stat-years">5+</span>
-                <span class="stat-label">Years of Excellence</span>
-              </div>
-              <div class="stat-card">
-                <span class="stat-num" id="stat-cars">1.2k+</span>
-                <span class="stat-label">Vehicles Delivered</span>
-              </div>
-              <div class="stat-card">
-                <span class="stat-num" id="stat-rate">99%</span>
-                <span class="stat-label">Client Satisfaction</span>
-              </div>
-              <div class="stat-card">
-                <span class="stat-num" id="stat-drivers">20+</span>
-                <span class="stat-label">Vetted Drivers</span>
-              </div>
-            </div>
+            <img src="/images/about_company.png" alt="About Ellies Logistics Office" class="about-company-img" onerror="this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80'" />
           </div>
           
           <!-- Right Content -->
@@ -280,6 +261,22 @@
             <p>
               Proudly based in Zimbabwe, we have earned a reputation for reliability, professionalism, and outstanding customer service. Whether you’re importing a vehicle, renting a car, or transport non-running fleet, our experienced team is dedicated to delivering seamless, efficient, and customer-focused solutions every step of the way.
             </p>
+
+            <!-- Stats Inline Section -->
+            <div class="about-stats-inline">
+              <div class="stat-item">
+                <span class="stat-num">10+</span>
+                <span class="stat-label">Years of Excellence</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-num">5k+</span>
+                <span class="stat-label">Vehicles Delivered</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-num">100%</span>
+                <span class="stat-label">Client Satisfaction</span>
+              </div>
+            </div>
             
             <div class="mission-box">
               <div class="mission-icon">
@@ -329,8 +326,7 @@
                 </ul>
                 
                 <div class="service-actions">
-                  <a href="#calculator" class="btn-primary btn-sm btn-service-cta" id="btn-srv-calc">Calculate Payments</a>
-                  <button class="btn-secondary btn-sm open-import-modal" id="btn-srv-quote">Get Custom Quote</button>
+                  <button class="btn-primary btn-sm open-import-modal" id="btn-srv-quote">Get Quote</button>
                 </div>
               </div>
             </div>
@@ -353,10 +349,6 @@
                   <li><i class="fa-solid fa-check"></i> Convenient airport transfer services</li>
                   <li><i class="fa-solid fa-check"></i> Safe, dependable, and comfortable transportation</li>
                 </ul>
-                
-                <div class="service-actions">
-                  <a href="#contact" class="btn-primary btn-sm btn-service-cta btn-book-service" data-service="Shuttle Service" id="btn-srv-book-shuttle">Book Service</a>
-                </div>
               </div>
             </div>
 
@@ -379,10 +371,6 @@
                   <li><i class="fa-solid fa-check"></i> Affordable and competitive rates</li>
                   <li><i class="fa-solid fa-check"></i> Outstanding customer support</li>
                 </ul>
-                
-                <div class="service-actions">
-                  <a href="#contact" class="btn-primary btn-sm btn-service-cta btn-book-service" data-service="Vehicle Rental" id="btn-srv-book-rental">Rent Vehicle</a>
-                </div>
               </div>
             </div>
 
@@ -405,162 +393,22 @@
                   <li><i class="fa-solid fa-check"></i> Timely pickup and delivery</li>
                   <li><i class="fa-solid fa-check"></i> Suitable for running and non-running vehicles</li>
                 </ul>
-                
-                <div class="service-actions">
-                  <a href="#contact" class="btn-primary btn-sm btn-service-cta btn-book-service" data-service="Vehicle Hauling" id="btn-srv-book-hauling">Book Hauling</a>
-                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Calculator Section -->
-      <section id="calculator" class="calculator-section">
-        <div class="calculator-bg-effects">
-          <div class="glow-orb-calc"></div>
-        </div>
-        <div class="container">
-          <div class="section-header text-center">
-            <span class="badge">Interactive Estimator</span>
-            <h2>Vehicle Importation Payment Calculator</h2>
-            <div class="header-line"></div>
-            <p class="section-description">
-              Select your vehicle parameters below to generate an instant payment breakdown including your 50% deposit and 2-month installments.
-            </p>
-          </div>
-
-          <div class="calculator-grid">
-            <!-- Calculator Inputs Form -->
-            <div class="calculator-card calc-form">
-              <h3>Calculate Estimate</h3>
-              <form id="import-calculator-form">
-                <!-- Vehicle Value -->
-                <div class="form-group">
-                  <label for="vehicle-price">Vehicle Purchase Price (USD) <span class="required">*</span></label>
-                  <div class="input-with-icon">
-                    <span class="input-icon">$</span>
-                    <input type="number" id="vehicle-price" placeholder="e.g. 10000" min="1000" value="10000" required />
-                  </div>
-                  <span class="input-helper">The fob or purchase price of the vehicle at the source.</span>
-                </div>
-
-                <!-- Sourcing Country -->
-                <div class="form-group">
-                  <label for="sourcing-country">Sourcing Country</label>
-                  <select id="sourcing-country">
-                    <option value="japan" selected>Japan (High Availability)</option>
-                    <option value="uk">United Kingdom</option>
-                    <option value="safrica">South Africa</option>
-                    <option value="singapore">Singapore</option>
-                  </select>
-                </div>
-
-                <!-- Shipping Method -->
-                <div class="form-group">
-                  <label>Shipping Method</label>
-                  <div class="radio-group">
-                    <label class="radio-label">
-                      <input type="radio" name="shipping-method" value="roro" checked />
-                      <span class="custom-radio"></span>
-                      <span>Ro-Ro (Roll-on/Roll-off) - $1,600</span>
-                    </label>
-                    <label class="radio-label">
-                      <input type="radio" name="shipping-method" value="container" />
-                      <span class="custom-radio"></span>
-                      <span>Container Shipping - $2,800</span>
-                    </label>
-                  </div>
-                </div>
-
-                <!-- Vehicle Category (determines duties estimation) -->
-                <div class="form-group">
-                  <label for="vehicle-category">Vehicle Category (For Duty Estimate)</label>
-                  <select id="vehicle-category">
-                    <option value="sedan" selected>Sedan / Hatchback (approx. 40% Duty)</option>
-                    <option value="suv">SUV / Station Wagon (approx. 45% Duty)</option>
-                    <option value="doublecab">Double Cab / pickup (approx. 35% Duty)</option>
-                    <option value="truck">Commercial Cargo Truck (approx. 25% Duty)</option>
-                  </select>
-                </div>
-              </form>
-            </div>
-
-            <!-- Calculator Outputs Display -->
-            <div class="calculator-card calc-results">
-              <h3>Estimated Costs Breakdown</h3>
-              
-              <div class="results-breakdown">
-                <div class="result-row">
-                  <span>Vehicle Cost (FOB)</span>
-                  <span id="res-fob">$10,000.00</span>
-                </div>
-                <div class="result-row">
-                  <span>Shipping Cost</span>
-                  <span id="res-shipping">$1,600.00</span>
-                </div>
-                <div class="result-row">
-                  <span>ZIMRA Duties &amp; Clearing (Est.)</span>
-                  <span id="res-duty">$4,000.00</span>
-                </div>
-                <div class="result-row">
-                  <span>Agency &amp; Handling Fee</span>
-                  <span id="res-agency">$650.00</span>
-                </div>
-                
-                <hr class="results-divider" />
-                
-                <div class="result-row total-row">
-                  <span>Estimated Total CIF + Duty</span>
-                  <span id="res-total" class="highlight-text">$16,250.00</span>
-                </div>
-              </div>
-              
-              <div class="payment-plan-breakdown">
-                <h4>Flexible Installment Plan</h4>
-                
-                <div class="plan-cards-container">
-                  <!-- Deposit -->
-                  <div class="plan-card highlight-card">
-                    <p class="plan-card-title">50% Secure Deposit</p>
-                    <p class="plan-card-amount" id="res-deposit">$8,125.00</p>
-                    <span class="plan-card-tag">Required to Start</span>
-                  </div>
-                  
-                  <!-- Installment 1 -->
-                  <div class="plan-card">
-                    <p class="plan-card-title">Installment 1 (Month 1)</p>
-                    <p class="plan-card-amount" id="res-inst1">$4,062.50</p>
-                    <span class="plan-card-tag">During Shipping</span>
-                  </div>
-                  
-                  <!-- Installment 2 -->
-                  <div class="plan-card">
-                    <p class="plan-card-title">Installment 2 (Month 2)</p>
-                    <p class="plan-card-amount" id="res-inst2">$4,062.50</p>
-                    <span class="plan-card-tag">Prior to Handover</span>
-                  </div>
-                </div>
-              </div>
-
-              <button class="btn-primary w-100 open-import-modal" id="btn-calc-apply">Secure This Vehicle</button>
-              <p class="disclaimer-text">
-                * Note: Customs duties are estimates calculated based on ZIMRA tariffs. Final rates are determined by physical inspection and documentation verification.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <!-- Contact Us Section -->
       <section id="contact" class="contact-section">
         <div class="container">
           <div class="section-header text-center">
-            <span class="badge">Start a Conversation</span>
-            <h2>Get In Touch</h2>
+            <span class="badge">GET IN TOUCH!</span>
+            <h2>Ready to kick start your vehicle importing journey?</h2>
             <div class="header-line"></div>
             <p class="section-description">
-              Our team of dedicated professionals is ready to assist with all your vehicle logistics needs. Reach out today - we're ready to help you get moving.
+              Contact us today for a personalized quote and let us help you find the best solution for your needs.
             </p>
           </div>
 
@@ -606,7 +454,10 @@
 
             <!-- Contact Form -->
             <div class="contact-form-card">
-              <h3>Send a Message</h3>
+              <h3>Let’s Start a Conversation</h3>
+              <p class="conversation-intro-text">
+                Our team of dedicated professionals is ready to assist with all vehicle logistics needs. Whether you need vehicle importation, vehicle rental, vehicle hauling and taxi and shuttle services, we’re committed to providing expert guidance and reliable support every support of the way. Reach out today- we’re ready to help you get moving.
+              </p>
               <form id="contact-us-form" class="interactive-form">
                 <div class="form-row">
                   <div class="form-group">
@@ -770,7 +621,6 @@
           <ul class="footer-links">
             <li><a href="#about">About Us</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#calculator">Quote Calculator</a></li>
             <li><a href="#contact">Contact Us</a></li>
           </ul>
         </div>
