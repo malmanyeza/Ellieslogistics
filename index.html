@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Optimization -->
+    <title>Ellies Logistics | Leading Vehicle Logistics & Importing in Zimbabwe</title>
+    <meta name="description" content="Zimbabwe's premier vehicle logistics company. Specializing in trusted vehicle importing, premium car rentals, safe vehicle hauling, and reliable CBD/airport shuttle services." />
+    <meta name="keywords" content="vehicle logistics, import cars Zimbabwe, car rental Harare, vehicle hauling, airport shuttle Harare, Ellies Logistics, car import payment plan" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for UI Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- Link CSS directly in head to prevent Flash of Unstyled Content (FOUC) -->
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body class="dark-theme">
+    <!-- Inline Theme Script to prevent Flash of Incorrect Theme -->
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'light' || (!savedTheme && !systemPrefersDark)) {
+          document.body.classList.remove('dark-theme');
+          document.body.classList.add('light-theme');
+        } else {
+          document.body.classList.remove('light-theme');
+          document.body.classList.add('dark-theme');
+        }
+      })();
+    </script>
+    
+    <!-- Navbar Header -->
+    <header class="navbar" id="main-header">
+      <div class="nav-container">
+        <!-- Responsive Brand Logo -->
+        <a href="#home" class="nav-logo" id="header-logo-link">
+          <!-- Inlined Brand Logo SVG for color theme control -->
+          <svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 100">
+            <defs>
+              <clipPath id="nav-circle-clip">
+                <circle cx="50" cy="50" r="40" />
+              </clipPath>
+            </defs>
+            <g class="logo-icon">
+              <path d="M 50,10 A 40,40 0 0,0 50,90 L 65,50 Z" />
+              <g clip-path="url(#nav-circle-clip)">
+                <rect x="55.5" y="14" width="40" height="4" />
+                <rect x="58.5" y="22" width="40" height="4" />
+                <rect x="61.5" y="30" width="40" height="4" />
+                <rect x="64.5" y="38" width="40" height="4" />
+                <rect x="67.5" y="46" width="40" height="4" />
+                <rect x="67.5" y="54" width="40" height="4" />
+                <rect x="64.5" y="62" width="40" height="4" />
+                <rect x="61.5" y="70" width="40" height="4" />
+                <rect x="58.5" y="78" width="40" height="4" />
+                <rect x="55.5" y="86" width="40" height="4" />
+              </g>
+            </g>
+            <g class="logo-text">
+              <text class="text-ellies" x="110" y="62" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-style="italic" font-size="54" letter-spacing="-1">ELLIES</text>
+              <text class="text-logistics" x="170" y="88" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-style="italic" font-size="20" letter-spacing="5">LOGISTICS</text>
+            </g>
+          </svg>
+        </a>
+
+        <!-- Desktop Navigation links -->
+        <nav class="nav-menu" id="nav-links">
+          <a href="#home" class="nav-item active" id="nav-home">Home</a>
+          <a href="#about" class="nav-item" id="nav-about">About Us</a>
+          <a href="#services" class="nav-item" id="nav-services">Services</a>
+          <a href="#calculator" class="nav-item" id="nav-calc">Calculator</a>
+          <a href="#contact" class="nav-item" id="nav-contact">Contact Us</a>
+        </nav>
+
+        <!-- CTA & Controls -->
+        <div class="nav-controls">
+          <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <a href="#calculator" class="btn-primary nav-cta" id="btn-nav-quote">Get a Quote</a>
+          <!-- Mobile Menu Toggle Button -->
+          <button id="mobile-menu-btn" class="mobile-btn" aria-label="Open Navigation Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Dropdown Nav Menu -->
+    <div class="mobile-nav" id="mobile-nav-menu">
+      <a href="#home" class="mobile-nav-item" id="mob-home">Home</a>
+      <a href="#about" class="mobile-nav-item" id="mob-about">About Us</a>
+      <a href="#services" class="mobile-nav-item" id="mob-services">Services</a>
+      <a href="#calculator" class="mobile-nav-item" id="mob-calc">Calculator</a>
+      <a href="#contact" class="mobile-nav-item" id="mob-contact">Contact Us</a>
+      <a href="#calculator" class="btn-primary mobile-cta" id="mob-btn-quote">Get a Quote</a>
+    </div>
+
+    <!-- MAIN SECTIONS -->
+    <main>
+      <!-- Hero Section -->
+      <section id="home" class="hero-section">
+        <div class="hero-background-effects">
+          <div class="glow-orb glow-orb-1"></div>
+          <div class="glow-orb glow-orb-2"></div>
+          <div class="grid-overlay"></div>
+        </div>
+        <div class="container hero-container">
+          <div class="hero-content">
+            <div class="badge" id="hero-badge">Zimbabwe’s Leading Logistics Partner</div>
+            <h1 class="hero-title" id="hero-main-title">
+              Your Trusted Partner in <span class="highlight-text">Vehicle Logistics</span>
+            </h1>
+            <p class="hero-subtitle">
+              Zimbabwe's leading and premier vehicle logistics company. We are committed to delivering reliable, efficient, and customer-centric logistics solutions.
+            </p>
+            
+            <div class="hero-checklist">
+              <div class="checklist-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Trusted vehicle importing</span>
+              </div>
+              <div class="checklist-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Premium Car Rentals</span>
+              </div>
+              <div class="checklist-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Vehicle hauling</span>
+              </div>
+              <div class="checklist-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Shuttle Services</span>
+              </div>
+            </div>
+
+            <div class="hero-actions">
+              <a href="#calculator" class="btn-primary btn-lg" id="btn-hero-start">Start Importing</a>
+              <a href="#services" class="btn-secondary btn-lg" id="btn-hero-explore">Our Services</a>
+            </div>
+          </div>
+          
+          <!-- Modern floating elements graphics -->
+          <div class="hero-graphics">
+            <div class="graphics-card main-card" id="hero-slideshow">
+              <!-- Slide 1 -->
+              <div class="hero-slide active">
+                <img src="/images/vehicle_importation.png" alt="Vehicle Importation Service" class="graphics-img" onerror="this.src='https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=600&q=80'" />
+                <div class="slide-caption">Vehicle Importation Services</div>
+              </div>
+              <!-- Slide 2 -->
+              <div class="hero-slide">
+                <img src="/images/shuttle_services.png" alt="Taxi & Shuttle Services" class="graphics-img" onerror="this.src='https://images.unsplash.com/photo-1549417229-aa67d3263c09?auto=format&fit=crop&w=600&q=80'" />
+                <div class="slide-caption">Taxi &amp; Shuttle Services</div>
+              </div>
+              <!-- Slide 3 -->
+              <div class="hero-slide">
+                <img src="/images/car_rentals.png" alt="Vehicle Rental Services" class="graphics-img" onerror="this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80'" />
+                <div class="slide-caption">Vehicle Rental Services</div>
+              </div>
+              <!-- Slide 4 -->
+              <div class="hero-slide">
+                <img src="/images/vehicle_hauling.png" alt="Vehicle Hauling Services" class="graphics-img" onerror="this.src='https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=600&q=80'" />
+                <div class="slide-caption">Vehicle Hauling Services</div>
+              </div>
+              
+              <div class="graphics-card-overlay"></div>
+              
+              <!-- Slide Navigation Indicators -->
+              <div class="slide-indicators">
+                <span class="indicator-dot active" data-slide="0"></span>
+                <span class="indicator-dot" data-slide="1"></span>
+                <span class="indicator-dot" data-slide="2"></span>
+                <span class="indicator-dot" data-slide="3"></span>
+              </div>
+            </div>
+            <!-- Floating cards -->
+            <div class="floating-badge badge-top" id="float-badge-1">
+              <div class="badge-icon"><i class="fa-solid fa-ship"></i></div>
+              <div class="badge-text">
+                <p class="badge-label">Active Cargo Shipments</p>
+                <p class="badge-val">Harare Route Active</p>
+              </div>
+            </div>
+            <div class="floating-badge badge-bottom" id="float-badge-2">
+              <div class="badge-icon"><i class="fa-solid fa-percent"></i></div>
+              <div class="badge-text">
+                <p class="badge-label">Flexible Pricing</p>
+                <p class="badge-val">50% Installment Plan</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Choose Us Section -->
+      <section class="why-choose-section">
+        <div class="container">
+          <div class="section-header text-center">
+            <h2 id="why-title">Why Choose Ellies Logistics?</h2>
+            <div class="header-line"></div>
+            <p class="section-description">
+              We are Zimbabwe's leading and trusted vehicle importing company, committed to delivering reliable, efficient, and customer-centric solutions.
+            </p>
+          </div>
+          
+          <div class="why-grid">
+            <div class="why-card">
+              <div class="why-icon-container">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <h3>Secure &amp; Trusted</h3>
+              <p>Fully compliant with ZIMRA regulations, ensuring safe shipping, clearing, and door-to-door delivery with no hidden costs.</p>
+            </div>
+            <div class="why-card">
+              <div class="why-icon-container">
+                <i class="fa-solid fa-credit-card"></i>
+              </div>
+              <h3>Flexible Payments</h3>
+              <p>Lock down your dream vehicle with a 50% deposit and pay off the remaining balance in flexible installments over two months.</p>
+            </div>
+            <div class="why-card">
+              <div class="why-icon-container">
+                <i class="fa-solid fa-truck-fast"></i>
+              </div>
+              <h3>End-to-End Handling</h3>
+              <p>From sourcing at international ports, marine shipping, border clearance, to vehicle transport - we manage the entire chain.</p>
+            </div>
+            <div class="why-card">
+              <div class="why-icon-container">
+                <i class="fa-solid fa-headset"></i>
+              </div>
+              <h3>Customer Centric</h3>
+              <p>Dedicated personal logistics agent to handle updates, questions, and documentation, keeping you informed at every milestone.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Us Section -->
+      <section id="about" class="about-section">
+        <div class="container about-container">
+          <!-- Left Graphics Grid -->
+          <div class="about-graphics">
+            <div class="stats-grid">
+              <div class="stat-card">
+                <span class="stat-num" id="stat-years">5+</span>
+                <span class="stat-label">Years of Excellence</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-num" id="stat-cars">1.2k+</span>
+                <span class="stat-label">Vehicles Delivered</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-num" id="stat-rate">99%</span>
+                <span class="stat-label">Client Satisfaction</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-num" id="stat-drivers">20+</span>
+                <span class="stat-label">Vetted Drivers</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right Content -->
+          <div class="about-content">
+            <div class="badge">About Our Company</div>
+            <h2>Company Overview</h2>
+            <p class="lead-text">
+              At Ellies Logistics, we are committed to delivering top-tier logistics solutions tailored to meet the needs of both individuals and businesses.
+            </p>
+            <p>
+              Proudly based in Zimbabwe, we have earned a reputation for reliability, professionalism, and outstanding customer service. Whether you’re importing a vehicle, renting a car, or transport non-running fleet, our experienced team is dedicated to delivering seamless, efficient, and customer-focused solutions every step of the way.
+            </p>
+            
+            <div class="mission-box">
+              <div class="mission-icon">
+                <i class="fa-solid fa-bullseye"></i>
+              </div>
+              <div class="mission-text">
+                <h3>Our Mission</h3>
+                <p>
+                  To be Zimbabwe's most trusted partner in vehicle logistics solutions by delivering outstanding importation, rental, and shuttle services. We strive to exceed customer expectations through reliable, efficient, and customer-focused solutions, ensuring every transportation experience is smooth, convenient, and hassle-free.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section id="services" class="services-section">
+        <div class="container">
+          <div class="section-header text-center">
+            <h2>Our Logistics Services</h2>
+            <div class="header-line"></div>
+            <p class="section-description">
+              Professional, reliable, and premium transportation solutions customized for your personal and commercial requirements.
+            </p>
+          </div>
+
+          <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card" id="srv-import">
+              <div class="service-image-container">
+                <img src="/images/vehicle_importation.png" alt="Vehicle Importation Service" class="service-img" onerror="this.src='https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=600&q=80'" />
+                <div class="service-icon-badge"><i class="fa-solid fa-ship"></i></div>
+              </div>
+              <div class="service-content">
+                <h3>Vehicle Importation Services</h3>
+                <p>
+                  Make importing your dream vehicle simple and affordable with our flexible vehicle importation service. Secure your preferred car with a 50% deposit and settle the remaining balance through convenient monthly installments over two months. From sourcing and shipping to customs documentation and delivery, our experienced team manages every step of the importation process, ensuring a smooth and hassle-free experience.
+                </p>
+                
+                <ul class="service-features-list">
+                  <li><i class="fa-solid fa-check"></i> Flexible payment plan with a 50% deposit</li>
+                  <li><i class="fa-solid fa-check"></i> Balance payable over two months installments</li>
+                  <li><i class="fa-solid fa-check"></i> End-to-end logistics coordination</li>
+                  <li><i class="fa-solid fa-check"></i> Complete customs and documentation support</li>
+                  <li><i class="fa-solid fa-check"></i> Smooth and stress-free importation process</li>
+                </ul>
+                
+                <div class="service-actions">
+                  <a href="#calculator" class="btn-primary btn-sm btn-service-cta" id="btn-srv-calc">Calculate Payments</a>
+                  <button class="btn-secondary btn-sm open-import-modal" id="btn-srv-quote">Get Custom Quote</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card" id="srv-shuttle">
+              <div class="service-image-container">
+                <img src="/images/shuttle_services.png" alt="Taxi and Shuttle Service" class="service-img" onerror="this.src='https://images.unsplash.com/photo-1549417229-aa67d3263c09?auto=format&fit=crop&w=600&q=80'" />
+                <div class="service-icon-badge"><i class="fa-solid fa-bus"></i></div>
+              </div>
+              <div class="service-content">
+                <h3>Taxi &amp; Shuttle Services</h3>
+                <p>
+                  Travel with confidence using our reliable taxi and shuttle services across Harare's CBD. Whether you require an airport transfer, transportation for business meetings, or a convenient way to explore the city, our experienced drivers and well-maintained vehicles ensure a safe, comfortable, and punctual journey every time.
+                </p>
+                
+                <ul class="service-features-list">
+                  <li><i class="fa-solid fa-check"></i> Comprehensive coverage across Harare CBD</li>
+                  <li><i class="fa-solid fa-check"></i> Experienced and professional drivers</li>
+                  <li><i class="fa-solid fa-check"></i> Convenient airport transfer services</li>
+                  <li><i class="fa-solid fa-check"></i> Safe, dependable, and comfortable transportation</li>
+                </ul>
+                
+                <div class="service-actions">
+                  <a href="#contact" class="btn-primary btn-sm btn-service-cta btn-book-service" data-service="Shuttle Service" id="btn-srv-book-shuttle">Book Service</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card" id="srv-rental">
+              <div class="service-image-container">
+                <img src="/images/car_rentals.png" alt="Vehicle Rental Service" class="service-img" onerror="this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80'" />
+                <div class="service-icon-badge"><i class="fa-solid fa-car"></i></div>
+              </div>
+              <div class="service-content">
+                <h3>Vehicle Rental Services</h3>
+                <p>
+                  Our vehicle rental service provides reliable transportation solutions for every occasion, whether you're traveling for business, leisure, or personal errands. We offer a diverse selection of well-maintained vehicles to ensure a safe and comfortable journey. With flexible rental plans, affordable rates, and exceptional customer support, we make every rental experience convenient and stress-free.
+                </p>
+                
+                <ul class="service-features-list">
+                  <li><i class="fa-solid fa-check"></i> Extensive selection of vehicles (Sedans, SUVs, pickups)</li>
+                  <li><i class="fa-solid fa-check"></i> Regularly serviced and well-maintained fleet</li>
+                  <li><i class="fa-solid fa-check"></i> Flexible rental periods (Daily, Weekly, Monthly)</li>
+                  <li><i class="fa-solid fa-check"></i> Affordable and competitive rates</li>
+                  <li><i class="fa-solid fa-check"></i> Outstanding customer support</li>
+                </ul>
+                
+                <div class="service-actions">
+                  <a href="#contact" class="btn-primary btn-sm btn-service-cta btn-book-service" data-service="Vehicle Rental" id="btn-srv-book-rental">Rent Vehicle</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-card" id="srv-hauling">
+              <div class="service-image-container">
+                <img src="/images/vehicle_hauling.png" alt="Vehicle Hauling Service" class="service-img" onerror="this.src='https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=600&q=80'" />
+                <div class="service-icon-badge"><i class="fa-solid fa-truck-moving"></i></div>
+              </div>
+              <div class="service-content">
+                <h3>Vehicle Hauling Services</h3>
+                <p>
+                  Our vehicle hauling service provides a safe, efficient, and dependable solution for transporting vehicles to your desired destination. Whether you need to move a single vehicle, deliver a newly purchased car, relocate a fleet, or transport a non-running vehicle, our experienced team ensures your vehicle is handled with the utmost care. With reliable transport equipment and timely delivery, we make vehicle transportation simple and worry-free.
+                </p>
+                
+                <ul class="service-features-list">
+                  <li><i class="fa-solid fa-check"></i> Safe and secure vehicle transportation</li>
+                  <li><i class="fa-solid fa-check"></i> Local and long-distance hauling across Zimbabwe</li>
+                  <li><i class="fa-solid fa-check"></i> Professional and experienced transport team</li>
+                  <li><i class="fa-solid fa-check"></i> Timely pickup and delivery</li>
+                  <li><i class="fa-solid fa-check"></i> Suitable for running and non-running vehicles</li>
+                </ul>
+                
+                <div class="service-actions">
+                  <a href="#contact" class="btn-primary btn-sm btn-service-cta btn-book-service" data-service="Vehicle Hauling" id="btn-srv-book-hauling">Book Hauling</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Calculator Section -->
+      <section id="calculator" class="calculator-section">
+        <div class="calculator-bg-effects">
+          <div class="glow-orb-calc"></div>
+        </div>
+        <div class="container">
+          <div class="section-header text-center">
+            <span class="badge">Interactive Estimator</span>
+            <h2>Vehicle Importation Payment Calculator</h2>
+            <div class="header-line"></div>
+            <p class="section-description">
+              Select your vehicle parameters below to generate an instant payment breakdown including your 50% deposit and 2-month installments.
+            </p>
+          </div>
+
+          <div class="calculator-grid">
+            <!-- Calculator Inputs Form -->
+            <div class="calculator-card calc-form">
+              <h3>Calculate Estimate</h3>
+              <form id="import-calculator-form">
+                <!-- Vehicle Value -->
+                <div class="form-group">
+                  <label for="vehicle-price">Vehicle Purchase Price (USD) <span class="required">*</span></label>
+                  <div class="input-with-icon">
+                    <span class="input-icon">$</span>
+                    <input type="number" id="vehicle-price" placeholder="e.g. 10000" min="1000" value="10000" required />
+                  </div>
+                  <span class="input-helper">The fob or purchase price of the vehicle at the source.</span>
+                </div>
+
+                <!-- Sourcing Country -->
+                <div class="form-group">
+                  <label for="sourcing-country">Sourcing Country</label>
+                  <select id="sourcing-country">
+                    <option value="japan" selected>Japan (High Availability)</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="safrica">South Africa</option>
+                    <option value="singapore">Singapore</option>
+                  </select>
+                </div>
+
+                <!-- Shipping Method -->
+                <div class="form-group">
+                  <label>Shipping Method</label>
+                  <div class="radio-group">
+                    <label class="radio-label">
+                      <input type="radio" name="shipping-method" value="roro" checked />
+                      <span class="custom-radio"></span>
+                      <span>Ro-Ro (Roll-on/Roll-off) - $1,600</span>
+                    </label>
+                    <label class="radio-label">
+                      <input type="radio" name="shipping-method" value="container" />
+                      <span class="custom-radio"></span>
+                      <span>Container Shipping - $2,800</span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Vehicle Category (determines duties estimation) -->
+                <div class="form-group">
+                  <label for="vehicle-category">Vehicle Category (For Duty Estimate)</label>
+                  <select id="vehicle-category">
+                    <option value="sedan" selected>Sedan / Hatchback (approx. 40% Duty)</option>
+                    <option value="suv">SUV / Station Wagon (approx. 45% Duty)</option>
+                    <option value="doublecab">Double Cab / pickup (approx. 35% Duty)</option>
+                    <option value="truck">Commercial Cargo Truck (approx. 25% Duty)</option>
+                  </select>
+                </div>
+              </form>
+            </div>
+
+            <!-- Calculator Outputs Display -->
+            <div class="calculator-card calc-results">
+              <h3>Estimated Costs Breakdown</h3>
+              
+              <div class="results-breakdown">
+                <div class="result-row">
+                  <span>Vehicle Cost (FOB)</span>
+                  <span id="res-fob">$10,000.00</span>
+                </div>
+                <div class="result-row">
+                  <span>Shipping Cost</span>
+                  <span id="res-shipping">$1,600.00</span>
+                </div>
+                <div class="result-row">
+                  <span>ZIMRA Duties &amp; Clearing (Est.)</span>
+                  <span id="res-duty">$4,000.00</span>
+                </div>
+                <div class="result-row">
+                  <span>Agency &amp; Handling Fee</span>
+                  <span id="res-agency">$650.00</span>
+                </div>
+                
+                <hr class="results-divider" />
+                
+                <div class="result-row total-row">
+                  <span>Estimated Total CIF + Duty</span>
+                  <span id="res-total" class="highlight-text">$16,250.00</span>
+                </div>
+              </div>
+              
+              <div class="payment-plan-breakdown">
+                <h4>Flexible Installment Plan</h4>
+                
+                <div class="plan-cards-container">
+                  <!-- Deposit -->
+                  <div class="plan-card highlight-card">
+                    <p class="plan-card-title">50% Secure Deposit</p>
+                    <p class="plan-card-amount" id="res-deposit">$8,125.00</p>
+                    <span class="plan-card-tag">Required to Start</span>
+                  </div>
+                  
+                  <!-- Installment 1 -->
+                  <div class="plan-card">
+                    <p class="plan-card-title">Installment 1 (Month 1)</p>
+                    <p class="plan-card-amount" id="res-inst1">$4,062.50</p>
+                    <span class="plan-card-tag">During Shipping</span>
+                  </div>
+                  
+                  <!-- Installment 2 -->
+                  <div class="plan-card">
+                    <p class="plan-card-title">Installment 2 (Month 2)</p>
+                    <p class="plan-card-amount" id="res-inst2">$4,062.50</p>
+                    <span class="plan-card-tag">Prior to Handover</span>
+                  </div>
+                </div>
+              </div>
+
+              <button class="btn-primary w-100 open-import-modal" id="btn-calc-apply">Secure This Vehicle</button>
+              <p class="disclaimer-text">
+                * Note: Customs duties are estimates calculated based on ZIMRA tariffs. Final rates are determined by physical inspection and documentation verification.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Us Section -->
+      <section id="contact" class="contact-section">
+        <div class="container">
+          <div class="section-header text-center">
+            <span class="badge">Start a Conversation</span>
+            <h2>Get In Touch</h2>
+            <div class="header-line"></div>
+            <p class="section-description">
+              Our team of dedicated professionals is ready to assist with all your vehicle logistics needs. Reach out today - we're ready to help you get moving.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <!-- Contact Info Sidebar -->
+            <div class="contact-sidebar">
+              <div class="info-card">
+                <div class="info-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                <div class="info-details">
+                  <h4>Our Location</h4>
+                  <p>18158 Belvedere, Harare, Zimbabwe</p>
+                  <span class="info-sub">Visit our main office</span>
+                </div>
+              </div>
+
+              <div class="info-card">
+                <div class="info-icon"><i class="fa-solid fa-phone-volume"></i></div>
+                <div class="info-details">
+                  <h4>Phone Number</h4>
+                  <p><a href="tel:+263772357344">+263 77 235 7344</a></p>
+                  <span class="info-sub">Call us anytime</span>
+                </div>
+              </div>
+
+              <div class="info-card">
+                <div class="info-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+                <div class="info-details">
+                  <h4>E-mail Address</h4>
+                  <p><a href="mailto:info@ellieslogistics.com">info@ellieslogistics.com</a></p>
+                  <span class="info-sub">Send us a message</span>
+                </div>
+              </div>
+
+              <div class="info-card">
+                <div class="info-icon"><i class="fa-solid fa-business-time"></i></div>
+                <div class="info-details">
+                  <h4>Business Hours</h4>
+                  <p>Mon - Fri: 9:00 AM – 4:30 PM</p>
+                  <span class="info-sub">Visit our offices</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-card">
+              <h3>Send a Message</h3>
+              <form id="contact-us-form" class="interactive-form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="contact-name">Full Name <span class="required">*</span></label>
+                    <input type="text" id="contact-name" placeholder="John Doe" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="contact-email">Email Address <span class="required">*</span></label>
+                    <input type="email" id="contact-email" placeholder="john@example.com" required />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="contact-phone">Phone Number <span class="required">*</span></label>
+                    <input type="tel" id="contact-phone" placeholder="+263 77 XXXXXX" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="contact-service">Requested Service</label>
+                    <select id="contact-service">
+                      <option value="importing">Vehicle Importing</option>
+                      <option value="rental">Vehicle Rental Services</option>
+                      <option value="hauling">Vehicle Hauling</option>
+                      <option value="shuttle">Shuttle Services</option>
+                      <option value="general">General Inquiry</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="contact-message">Message <span class="required">*</span></label>
+                  <textarea id="contact-message" rows="5" placeholder="How can we help you get moving?" required></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary btn-submit-form" id="btn-submit-contact">
+                  <span class="btn-text">Submit Message</span>
+                  <span class="btn-loader hidden"><i class="fa-solid fa-circle-notch fa-spin"></i> Sending...</span>
+                </button>
+                
+                <div id="contact-success" class="alert-success hidden">
+                  <i class="fa-solid fa-circle-check"></i> Message sent successfully! Our team will get back to you shortly.
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal Form for Quick Vehicle Import Quote -->
+    <div id="import-quote-modal" class="modal-overlay">
+      <div class="modal-card">
+        <button class="modal-close-btn" id="close-modal-btn" aria-label="Close Modal">&times;</button>
+        <div class="modal-header">
+          <h3>Apply for Vehicle Importation</h3>
+          <p>Get a personalized quote and lock in our 50% deposit payment plan.</p>
+        </div>
+        <form id="modal-quote-form" class="interactive-form">
+          <div class="form-group">
+            <label for="modal-car-model">Target Vehicle (Make, Model, Year)</label>
+            <input type="text" id="modal-car-model" placeholder="e.g. Toyota Land Cruiser Prado 2018" required />
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="modal-price">Target Purchase Price (USD)</label>
+              <input type="number" id="modal-price" placeholder="e.g. 15000" />
+            </div>
+            <div class="form-group">
+              <label for="modal-country">Sourcing Country</label>
+              <select id="modal-country">
+                <option value="japan">Japan</option>
+                <option value="uk">United Kingdom</option>
+                <option value="safrica">South Africa</option>
+                <option value="singapore">Singapore</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="modal-name">Your Full Name <span class="required">*</span></label>
+              <input type="text" id="modal-name" placeholder="John Doe" required />
+            </div>
+            <div class="form-group">
+              <label for="modal-phone">Phone Number <span class="required">*</span></label>
+              <input type="tel" id="modal-phone" placeholder="+263 77 XXXXXX" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="modal-email">Email Address <span class="required">*</span></label>
+            <input type="email" id="modal-email" placeholder="john@example.com" required />
+          </div>
+
+          <div class="form-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="modal-accept-plan" checked required />
+              <span class="custom-checkbox"></span>
+              <span>I would like to apply for the 50% deposit and 2-month installment plan.</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn-primary w-100 btn-submit-form" id="btn-submit-modal">
+            <span class="btn-text">Request Quote Details</span>
+            <span class="btn-loader hidden"><i class="fa-solid fa-circle-notch fa-spin"></i> Processing...</span>
+          </button>
+          
+          <div id="modal-success" class="alert-success hidden">
+            <i class="fa-solid fa-circle-check"></i> Request submitted! We've sent a summary to your email.
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container footer-container">
+        <!-- Footer Info -->
+        <div class="footer-about">
+          <svg class="footer-logo brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 100">
+            <defs>
+              <clipPath id="footer-circle-clip">
+                <circle cx="50" cy="50" r="40" />
+              </clipPath>
+            </defs>
+            <g class="logo-icon">
+              <path d="M 50,10 A 40,40 0 0,0 50,90 L 65,50 Z" />
+              <g clip-path="url(#footer-circle-clip)">
+                <rect x="55.5" y="14" width="40" height="4" />
+                <rect x="58.5" y="22" width="40" height="4" />
+                <rect x="61.5" y="30" width="40" height="4" />
+                <rect x="64.5" y="38" width="40" height="4" />
+                <rect x="67.5" y="46" width="40" height="4" />
+                <rect x="67.5" y="54" width="40" height="4" />
+                <rect x="64.5" y="62" width="40" height="4" />
+                <rect x="61.5" y="70" width="40" height="4" />
+                <rect x="58.5" y="78" width="40" height="4" />
+                <rect x="55.5" y="86" width="40" height="4" />
+              </g>
+            </g>
+            <g class="logo-text">
+              <text class="text-ellies" x="110" y="62" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-style="italic" font-size="54" letter-spacing="-1">ELLIES</text>
+              <text class="text-logistics" x="170" y="88" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-style="italic" font-size="20" letter-spacing="5">LOGISTICS</text>
+            </g>
+          </svg>
+          <p class="footer-desc">
+            Zimbabwe's leading and premier vehicle logistics company. We are committed to delivering reliable, efficient, and customer-centric logistics solutions.
+          </p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Footer Links -->
+        <div class="footer-group">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#calculator">Quote Calculator</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Footer Services -->
+        <div class="footer-group">
+          <h4>Our Services</h4>
+          <ul class="footer-links">
+            <li><a href="#services">Vehicle Importing</a></li>
+            <li><a href="#services">Vehicle Rental Services</a></li>
+            <li><a href="#services">Vehicle Hauling</a></li>
+            <li><a href="#services">Shuttle Services</a></li>
+          </ul>
+        </div>
+
+        <!-- Footer Contact Info -->
+        <div class="footer-group">
+          <h4>Contact Details</h4>
+          <ul class="footer-contact">
+            <li><i class="fa-solid fa-location-dot"></i> <span>18158 Belvedere, Harare, Zimbabwe</span></li>
+            <li><i class="fa-solid fa-phone"></i> <span>+263 77 235 7344</span></li>
+            <li><i class="fa-solid fa-envelope"></i> <span>info@ellieslogistics.com</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom text-center">
+        <div class="container">
+          <p>&copy; 2026 Ellies Logistics. All rights reserved. Designed with modern aesthetics.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
