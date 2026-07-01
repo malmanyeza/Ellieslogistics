@@ -445,15 +445,15 @@ section {
   overflow: hidden;
 }
 
-/* Dark, premium overlay for the background slideshow */
+/* Dark, left-to-right fading overlay to make text highly legible on the left while displaying the slide image clearly on the right */
 .hero-bg-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    135deg,
-    rgba(10, 14, 23, 0.8) 0%,
-    rgba(10, 14, 23, 0.85) 50%,
-    rgba(10, 14, 23, 0.95) 100%
+    to right,
+    rgba(10, 14, 23, 0.85) 0%,
+    rgba(10, 14, 23, 0.65) 45%,
+    rgba(10, 14, 23, 0.2) 100%
   );
   z-index: 3;
 }
@@ -495,78 +495,85 @@ section {
   inset: 0;
   background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   background-size: 32px 32px;
-  opacity: 0.5;
+  opacity: 0.3;
   z-index: 4;
 }
 
 .hero-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   z-index: 5;
   position: relative;
   width: 100%;
 }
 
-/* Premium glassmorphic container for hero text */
+/* Clean, left-aligned content box with no card background */
 .hero-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  max-width: 840px;
-  padding: 48px;
-  background: rgba(15, 23, 42, 0.45);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-lg);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-}
-
-.hero-title {
-  font-size: 3.5rem;
-  line-height: 1.2;
-  margin-bottom: 24px;
-  letter-spacing: -1.5px;
-  color: #ffffff;
-}
-
-.highlight-text {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.hero-subtitle {
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 32px;
-  max-width: 640px;
-  line-height: 1.6;
-}
-
-.hero-checklist {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px;
-  margin-bottom: 40px;
+  align-items: flex-start;
+  text-align: left;
+  max-width: 680px;
   width: 100%;
 }
 
-.checklist-item {
-  display: flex;
+/* Rounded badge pill at the top of hero */
+.hero-badge-pill {
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-weight: 500;
+  gap: 8px;
+  padding: 8px 18px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   color: rgba(255, 255, 255, 0.9);
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-.checklist-item i {
-  color: var(--primary);
+.hero-badge-pill .badge-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #0084ff; /* blue dot */
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 10px #0084ff;
+}
+
+/* Massive bold title (adventure awaits-style) */
+.hero-title {
+  font-size: 5.5rem;
+  line-height: 1.05;
+  margin-bottom: 24px;
+  letter-spacing: -2px;
+  font-weight: 850;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  text-transform: none;
+  text-align: left;
+}
+
+.hero-title .title-green {
+  color: var(--primary-accent); /* vibrant green */
+  text-shadow: 0 2px 10px rgba(0, 255, 76, 0.15);
+}
+
+.hero-title .title-white {
+  color: #ffffff;
+}
+
+.hero-subtitle {
   font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 40px;
+  max-width: 580px;
+  line-height: 1.65;
+  text-align: left;
 }
 
 .hero-actions {
@@ -574,22 +581,49 @@ section {
   gap: 16px;
 }
 
-/* Override button styles inside hero for dark background contrast */
-.hero-section .badge {
-  background-color: var(--primary-glow);
-  border: 1px solid var(--primary);
-  color: var(--primary);
+/* Custom premium buttons */
+.btn-hero-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 36px;
+  background-color: #ffffff;
+  color: #0f172a;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.15);
 }
 
-.hero-section .btn-secondary {
+.btn-hero-primary:hover {
+  background-color: #f1f5f9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
+}
+
+.btn-hero-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 36px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-.hero-section .btn-secondary:hover {
-  border-color: var(--primary);
-  background-color: var(--primary-glow);
-  color: var(--primary);
+.btn-hero-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.35);
   transform: translateY(-2px);
 }
 
@@ -617,14 +651,14 @@ section {
   object-fit: cover;
 }
 
-/* Indicator dots positioning */
+/* Horizontal pill bar indicators (positioned bottom left) */
 .slide-indicators-container {
   position: absolute;
   bottom: 40px;
-  left: 0;
-  width: 100%;
+  left: 5%;
+  width: auto;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   z-index: 10;
 }
 
@@ -634,99 +668,82 @@ section {
 }
 
 .indicator-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.3);
+  width: 24px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.25);
   cursor: pointer;
   transition: all var(--transition-fast);
 }
 
 .indicator-dot:hover {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .indicator-dot.active {
-  width: 24px;
-  border-radius: 4px;
-  background-color: var(--primary);
+  width: 48px;
+  background-color: #ffffff;
 }
 
-/* Floating Badges container & items */
-.hero-floating-badges-container {
+/* Navigation Arrow Buttons (positioned bottom right) */
+.slide-nav-arrows {
   position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 6;
-  overflow: hidden;
-}
-
-.floating-badge {
-  position: absolute;
-  background-color: rgba(15, 23, 42, 0.65);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 16px 20px;
-  border-radius: var(--radius-md);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.badge-top {
-  bottom: 120px;
-  left: 5%;
-  animation: float-left 6s ease-in-out infinite;
-}
-
-.badge-bottom {
-  bottom: 120px;
+  bottom: 40px;
   right: 5%;
-  animation: float-right 6s ease-in-out infinite;
+  display: flex;
+  gap: 12px;
+  z-index: 10;
 }
 
-.badge-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background-color: var(--primary-glow);
-  color: var(--primary);
+.slide-arrow-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-.badge-label {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.6);
-  font-weight: 500;
-  margin-bottom: 2px;
+.slide-arrow-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
 }
 
-.badge-val {
-  font-size: 0.95rem;
-  font-weight: 700;
+.slide-arrow-btn:active {
+  transform: scale(0.95);
+}
+
+/* Floating WhatsApp Sticky Button */
+.whatsapp-float-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366; /* WhatsApp official green */
   color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+  z-index: 999;
+  transition: all var(--transition-fast);
 }
 
-@keyframes float-left {
-  0%, 100% { transform: translateY(0) rotate(1deg); }
-  50% { transform: translateY(-15px) rotate(-1deg); }
-}
-
-@keyframes float-right {
-  0%, 100% { transform: translateY(0) rotate(-1deg); }
-  50% { transform: translateY(-15px) rotate(1deg); }
-}
-
-/* Hide floating badges and adjust sizes on medium/small viewports */
-@media (max-width: 992px) {
-  .hero-floating-badges-container {
-    display: none;
-  }
+.whatsapp-float-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
 }
 
 /* ==========================================

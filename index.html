@@ -136,41 +136,30 @@
 
         <div class="container hero-container">
           <div class="hero-content">
-            <div class="badge" id="hero-badge">Zimbabwe’s Leading Logistics Partner</div>
+            <div class="hero-badge-pill" id="hero-badge">
+              <span class="badge-dot"></span>
+              Ellies Logistics Zimbabwe
+            </div>
             <h1 class="hero-title" id="hero-main-title">
-              Your Trusted Partner in <span class="highlight-text">Vehicle Logistics</span>
+              <span class="title-green">Trusted</span><br />
+              <span class="title-white">Logistics</span>
             </h1>
             <p class="hero-subtitle">
-              Zimbabwe's leading and premier vehicle logistics company. We are committed to delivering reliable, efficient, and customer-centric logistics solutions.
+              Zimbabwe's premier vehicle importing and hauling service. Safe, secure, and custom-cleared transport delivered to your doorstep.
             </p>
             
-            <div class="hero-checklist">
-              <div class="checklist-item">
-                <i class="fa-solid fa-circle-check"></i>
-                <span>Trusted vehicle importing</span>
-              </div>
-              <div class="checklist-item">
-                <i class="fa-solid fa-circle-check"></i>
-                <span>Premium Car Rentals</span>
-              </div>
-              <div class="checklist-item">
-                <i class="fa-solid fa-circle-check"></i>
-                <span>Vehicle hauling</span>
-              </div>
-              <div class="checklist-item">
-                <i class="fa-solid fa-circle-check"></i>
-                <span>Shuttle Services</span>
-              </div>
-            </div>
-
             <div class="hero-actions">
-              <a href="#" class="btn-primary btn-lg open-import-modal" id="btn-hero-start">Start Importing</a>
-              <a href="#services" class="btn-secondary btn-lg" id="btn-hero-explore">Our Services</a>
+              <a href="#" class="btn-hero-primary open-import-modal" id="btn-hero-start">
+                Get a Quote <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              <a href="#contact" class="btn-hero-secondary" id="btn-hero-explore">
+                Contact Us
+              </a>
             </div>
           </div>
         </div>
 
-        <!-- Slide Navigation Indicators (positioned at the bottom center of the hero section) -->
+        <!-- Slide Navigation Indicators (positioned at the bottom left of the hero section) -->
         <div class="slide-indicators-container">
           <div class="slide-indicators">
             <span class="indicator-dot active" data-slide="0"></span>
@@ -180,21 +169,14 @@
           </div>
         </div>
 
-        <!-- Floating badges: positioned absolutely around the page layout -->
-        <div class="hero-floating-badges-container">
-          <div class="floating-badge badge-top" id="float-badge-1">
-            <div class="badge-icon"><i class="fa-solid fa-ship"></i></div>
-            <div class="badge-text">
-              <p class="badge-label">Active Cargo Shipments</p>
-              <p class="badge-val">Harare Route Active</p>
-            </div>
-          </div>
-          <div class="floating-badge badge-bottom" id="float-badge-2">
-            <div class="badge-icon"><i class="fa-solid fa-percent"></i></div>
-            <div class="badge-text" style="display: flex; align-items: center;">
-              <p class="badge-val" style="margin: 0;">Flexible Pricing</p>
-            </div>
-          </div>
+        <!-- Slide Navigation Arrows (positioned at the bottom right of the hero section) -->
+        <div class="slide-nav-arrows">
+          <button class="slide-arrow-btn prev-slide-btn" id="prev-slide" aria-label="Previous Slide">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="slide-arrow-btn next-slide-btn" id="next-slide" aria-label="Next Slide">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
         </div>
       </section>
 
@@ -652,6 +634,11 @@
         </div>
       </div>
     </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/263772357344" class="whatsapp-float-btn" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
     <script type="module" src="./src/main.js"></script>
   </body>

@@ -238,6 +238,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Add click events for Arrow Navigation Buttons
+  const prevBtn = document.getElementById('prev-slide');
+  const nextBtn = document.getElementById('next-slide');
+
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', () => {
+      stopSlideShow();
+      let prev = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(prev);
+      startSlideShow();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      stopSlideShow();
+      let next = (currentSlide + 1) % slides.length;
+      showSlide(next);
+      startSlideShow();
+    });
+  }
+
   // Start the loop automatically
   if (slides.length > 0) {
     startSlideShow();
