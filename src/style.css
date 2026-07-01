@@ -428,11 +428,11 @@ section {
    HERO SECTION
    ========================================== */
 .hero-section {
-  padding-top: 180px;
-  padding-bottom: 120px;
+  padding-top: 120px;
+  padding-bottom: 80px;
   overflow: hidden;
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   align-items: center;
 }
@@ -532,7 +532,7 @@ section {
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.5px;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
@@ -548,9 +548,9 @@ section {
 
 /* Massive bold title (adventure awaits-style) */
 .hero-title {
-  font-size: 5.5rem;
+  font-size: clamp(3.2rem, 7vw, 4.8rem);
   line-height: 1.05;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   letter-spacing: -2px;
   font-weight: 850;
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -568,11 +568,11 @@ section {
 }
 
 .hero-subtitle {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
   color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 40px;
+  margin-bottom: 32px;
   max-width: 580px;
-  line-height: 1.65;
+  line-height: 1.6;
   text-align: left;
 }
 
@@ -1715,7 +1715,9 @@ section {
   }
   
   .hero-section {
-    padding-top: 140px;
+    height: auto;
+    min-height: 100vh;
+    padding-top: 120px;
     padding-bottom: 80px;
   }
 
