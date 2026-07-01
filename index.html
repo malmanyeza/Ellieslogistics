@@ -106,11 +106,34 @@
     <main>
       <!-- Hero Section -->
       <section id="home" class="hero-section">
+        <!-- Full-screen Background Slideshow -->
+        <div class="hero-bg-slideshow" id="hero-slideshow">
+          <!-- Slide 1 -->
+          <div class="hero-slide active">
+            <img src="./images/vehicle_importation.jpg" alt="Vehicle Importation Service" class="graphics-img" onerror="this.src='https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=600&q=80'" />
+          </div>
+          <!-- Slide 2 -->
+          <div class="hero-slide">
+            <img src="./images/shuttle_services.jpg" alt="Taxi & Shuttle Services" class="graphics-img" onerror="this.src='https://images.unsplash.com/photo-1549417229-aa67d3263c09?auto=format&fit=crop&w=600&q=80'" />
+          </div>
+          <!-- Slide 3 -->
+          <div class="hero-slide">
+            <img src="./images/car_rentals.jpg" alt="Vehicle Rental Services" class="graphics-img" onerror="this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80'" />
+          </div>
+          <!-- Slide 4 -->
+          <div class="hero-slide">
+            <img src="./images/vehicle_hauling.jpg" alt="Vehicle Hauling Services" class="graphics-img" onerror="this.src='https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=600&q=80'" />
+          </div>
+          
+          <div class="hero-bg-overlay"></div>
+        </div>
+
         <div class="hero-background-effects">
           <div class="glow-orb glow-orb-1"></div>
           <div class="glow-orb glow-orb-2"></div>
           <div class="grid-overlay"></div>
         </div>
+
         <div class="container hero-container">
           <div class="hero-content">
             <div class="badge" id="hero-badge">Zimbabwe’s Leading Logistics Partner</div>
@@ -145,54 +168,31 @@
               <a href="#services" class="btn-secondary btn-lg" id="btn-hero-explore">Our Services</a>
             </div>
           </div>
-          
-          <!-- Modern floating elements graphics -->
-          <div class="hero-graphics">
-            <div class="graphics-card main-card" id="hero-slideshow">
-              <!-- Slide 1 -->
-              <div class="hero-slide active">
-                <img src="./images/vehicle_importation.png" alt="Vehicle Importation Service" class="graphics-img" onerror="this.src='https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=600&q=80'" />
-                <div class="slide-caption">Vehicle Importation Services</div>
-              </div>
-              <!-- Slide 2 -->
-              <div class="hero-slide">
-                <img src="./images/shuttle_services.png" alt="Taxi & Shuttle Services" class="graphics-img" onerror="this.src='https://images.unsplash.com/photo-1549417229-aa67d3263c09?auto=format&fit=crop&w=600&q=80'" />
-                <div class="slide-caption">Taxi &amp; Shuttle Services</div>
-              </div>
-              <!-- Slide 3 -->
-              <div class="hero-slide">
-                <img src="./images/car_rentals.png" alt="Vehicle Rental Services" class="graphics-img" onerror="this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80'" />
-                <div class="slide-caption">Vehicle Rental Services</div>
-              </div>
-              <!-- Slide 4 -->
-              <div class="hero-slide">
-                <img src="./images/vehicle_hauling.png" alt="Vehicle Hauling Services" class="graphics-img" onerror="this.src='https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=600&q=80'" />
-                <div class="slide-caption">Vehicle Hauling Services</div>
-              </div>
-              
-              <div class="graphics-card-overlay"></div>
-              
-              <!-- Slide Navigation Indicators -->
-              <div class="slide-indicators">
-                <span class="indicator-dot active" data-slide="0"></span>
-                <span class="indicator-dot" data-slide="1"></span>
-                <span class="indicator-dot" data-slide="2"></span>
-                <span class="indicator-dot" data-slide="3"></span>
-              </div>
+        </div>
+
+        <!-- Slide Navigation Indicators (positioned at the bottom center of the hero section) -->
+        <div class="slide-indicators-container">
+          <div class="slide-indicators">
+            <span class="indicator-dot active" data-slide="0"></span>
+            <span class="indicator-dot" data-slide="1"></span>
+            <span class="indicator-dot" data-slide="2"></span>
+            <span class="indicator-dot" data-slide="3"></span>
+          </div>
+        </div>
+
+        <!-- Floating badges: positioned absolutely around the page layout -->
+        <div class="hero-floating-badges-container">
+          <div class="floating-badge badge-top" id="float-badge-1">
+            <div class="badge-icon"><i class="fa-solid fa-ship"></i></div>
+            <div class="badge-text">
+              <p class="badge-label">Active Cargo Shipments</p>
+              <p class="badge-val">Harare Route Active</p>
             </div>
-            <!-- Floating cards -->
-            <div class="floating-badge badge-top" id="float-badge-1">
-              <div class="badge-icon"><i class="fa-solid fa-ship"></i></div>
-              <div class="badge-text">
-                <p class="badge-label">Active Cargo Shipments</p>
-                <p class="badge-val">Harare Route Active</p>
-              </div>
-            </div>
-            <div class="floating-badge badge-bottom" id="float-badge-2">
-              <div class="badge-icon"><i class="fa-solid fa-percent"></i></div>
-              <div class="badge-text" style="display: flex; align-items: center;">
-                <p class="badge-val" style="margin: 0;">Flexible Pricing</p>
-              </div>
+          </div>
+          <div class="floating-badge badge-bottom" id="float-badge-2">
+            <div class="badge-icon"><i class="fa-solid fa-percent"></i></div>
+            <div class="badge-text" style="display: flex; align-items: center;">
+              <p class="badge-val" style="margin: 0;">Flexible Pricing</p>
             </div>
           </div>
         </div>
@@ -247,7 +247,7 @@
         <div class="container about-container">
           <!-- Left Graphics (Now Images instead of stats) -->
           <div class="about-graphics">
-            <img src="./images/about_company.png" alt="About Ellies Logistics Office" class="about-company-img" onerror="this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80'" />
+            <img src="./images/about_company.jpg" alt="About Ellies Logistics Office" class="about-company-img" onerror="this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80'" />
           </div>
           
           <!-- Right Content -->
@@ -307,7 +307,7 @@
             <!-- Service 1 -->
             <div class="service-card" id="srv-import">
               <div class="service-image-container">
-                <img src="./images/vehicle_importation.png" alt="Vehicle Importation Service" class="service-img" onerror="this.src='https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=600&q=80'" />
+                <img src="./images/vehicle_importation.jpg" alt="Vehicle Importation Service" class="service-img" onerror="this.src='https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=600&q=80'" />
                 <div class="service-icon-badge"><i class="fa-solid fa-ship"></i></div>
               </div>
               <div class="service-content">
@@ -333,7 +333,7 @@
             <!-- Service 2 -->
             <div class="service-card" id="srv-shuttle">
               <div class="service-image-container">
-                <img src="./images/shuttle_services.png" alt="Taxi and Shuttle Service" class="service-img" onerror="this.src='https://images.unsplash.com/photo-1549417229-aa67d3263c09?auto=format&fit=crop&w=600&q=80'" />
+                <img src="./images/shuttle_services.jpg" alt="Taxi and Shuttle Service" class="service-img" onerror="this.src='https://images.unsplash.com/photo-1549417229-aa67d3263c09?auto=format&fit=crop&w=600&q=80'" />
                 <div class="service-icon-badge"><i class="fa-solid fa-bus"></i></div>
               </div>
               <div class="service-content">
@@ -354,7 +354,7 @@
             <!-- Service 3 -->
             <div class="service-card" id="srv-rental">
               <div class="service-image-container">
-                <img src="./images/car_rentals.png" alt="Vehicle Rental Service" class="service-img" onerror="this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80'" />
+                <img src="./images/car_rentals.jpg" alt="Vehicle Rental Service" class="service-img" onerror="this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80'" />
                 <div class="service-icon-badge"><i class="fa-solid fa-car"></i></div>
               </div>
               <div class="service-content">
@@ -376,7 +376,7 @@
             <!-- Service 4 -->
             <div class="service-card" id="srv-hauling">
               <div class="service-image-container">
-                <img src="./images/vehicle_hauling.png" alt="Vehicle Hauling Service" class="service-img" onerror="this.src='https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=600&q=80'" />
+                <img src="./images/vehicle_hauling.jpg" alt="Vehicle Hauling Service" class="service-img" onerror="this.src='https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=600&q=80'" />
                 <div class="service-icon-badge"><i class="fa-solid fa-truck-moving"></i></div>
               </div>
               <div class="service-content">

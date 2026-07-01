@@ -431,6 +431,31 @@ section {
   padding-top: 180px;
   padding-bottom: 120px;
   overflow: hidden;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Background Slideshow Container */
+.hero-bg-slideshow {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+}
+
+/* Dark, premium overlay for the background slideshow */
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 14, 23, 0.8) 0%,
+    rgba(10, 14, 23, 0.85) 50%,
+    rgba(10, 14, 23, 0.95) 100%
+  );
+  z-index: 3;
 }
 
 .hero-background-effects {
@@ -440,12 +465,13 @@ section {
   pointer-events: none;
 }
 
-/* Glowing ambient orbs */
+/* Glowing ambient orbs behind the content but on top of the slide overlay */
 .glow-orb {
   position: absolute;
   border-radius: 50%;
   filter: blur(100px);
-  opacity: 0.12;
+  opacity: 0.15;
+  z-index: 4;
 }
 
 .glow-orb-1 {
@@ -467,29 +493,44 @@ section {
 .grid-overlay {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   background-size: 32px 32px;
-  opacity: 0.4;
+  opacity: 0.5;
+  z-index: 4;
 }
 
 .hero-container {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 60px;
+  justify-content: center;
+  z-index: 5;
+  position: relative;
+  width: 100%;
 }
 
+/* Premium glassmorphic container for hero text */
 .hero-content {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
+  max-width: 840px;
+  padding: 48px;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .hero-title {
   font-size: 3.5rem;
-  line-height: 1.15;
+  line-height: 1.2;
   margin-bottom: 24px;
   letter-spacing: -1.5px;
+  color: #ffffff;
 }
 
 .highlight-text {
@@ -500,15 +541,17 @@ section {
 
 .hero-subtitle {
   font-size: 1.2rem;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.8);
   margin-bottom: 32px;
-  max-width: 540px;
+  max-width: 640px;
+  line-height: 1.6;
 }
 
 .hero-checklist {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
   margin-bottom: 40px;
   width: 100%;
 }
@@ -518,6 +561,7 @@ section {
   align-items: center;
   gap: 10px;
   font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .checklist-item i {
@@ -530,37 +574,31 @@ section {
   gap: 16px;
 }
 
-/* Floating Graphics Card Layout */
-.hero-graphics {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Override button styles inside hero for dark background contrast */
+.hero-section .badge {
+  background-color: var(--primary-glow);
+  border: 1px solid var(--primary);
+  color: var(--primary);
 }
 
-.graphics-card {
-  width: 100%;
-  max-width: 580px; /* Enlarged from 480px */
-  height: 400px; /* Enlarged from 340px */
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  border: 1px solid var(--border-color);
-  position: relative;
-  transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
-  transition: transform var(--transition-slow);
+.hero-section .btn-secondary {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
-.graphics-card:hover {
-  transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+.hero-section .btn-secondary:hover {
+  border-color: var(--primary);
+  background-color: var(--primary-glow);
+  color: var(--primary);
+  transform: translateY(-2px);
 }
 
-/* Slide Container & Animations */
+/* Slide Container & Animations (Ken Burns) */
 .hero-slide {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transform: scale(1.08); /* Start slightly zoomed for Ken Burns effect */
+  transform: scale(1.08);
   transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1;
   pointer-events: none;
@@ -568,7 +606,7 @@ section {
 
 .hero-slide.active {
   opacity: 1;
-  transform: scale(1); /* Smoothly zoom out to normal */
+  transform: scale(1);
   z-index: 2;
   pointer-events: all;
 }
@@ -579,58 +617,27 @@ section {
   object-fit: cover;
 }
 
-.graphics-card-overlay {
+/* Indicator dots positioning */
+.slide-indicators-container {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(10, 14, 23, 0.85) 0%, transparent 60%);
-  pointer-events: none;
-  z-index: 3;
+  bottom: 40px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
 }
 
-/* Slide Caption overlay */
-.slide-caption {
-  position: absolute;
-  bottom: 24px;
-  left: 24px;
-  background-color: rgba(24, 32, 48, 0.75);
-  backdrop-filter: blur(8px);
-  border: 1px solid var(--glass-border);
-  color: #ffffff;
-  padding: 8px 16px;
-  border-radius: var(--radius-sm);
-  font-size: 0.85rem;
-  font-weight: 600;
-  z-index: 4;
-  transform: translateY(10px);
-  opacity: 0;
-  transition: transform 0.5s ease 0.3s, opacity 0.5s ease 0.3s;
-}
-
-.light-theme .slide-caption {
-  background-color: rgba(255, 255, 255, 0.85);
-  color: var(--text-main);
-}
-
-.hero-slide.active .slide-caption {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-/* Indicators navigation dots */
 .slide-indicators {
-  position: absolute;
-  bottom: 24px;
-  right: 24px;
   display: flex;
   gap: 8px;
-  z-index: 5;
 }
 
 .indicator-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.35);
+  background-color: rgba(255, 255, 255, 0.3);
   cursor: pointer;
   transition: all var(--transition-fast);
 }
@@ -645,32 +652,39 @@ section {
   background-color: var(--primary);
 }
 
-/* Floating Badges */
+/* Floating Badges container & items */
+.hero-floating-badges-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 6;
+  overflow: hidden;
+}
+
 .floating-badge {
   position: absolute;
-  background-color: var(--glass-bg);
+  background-color: rgba(15, 23, 42, 0.65);
   backdrop-filter: blur(12px);
-  border: 1px solid var(--glass-border);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 16px 20px;
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   gap: 16px;
-  z-index: 10;
-  animation: float 4s ease-in-out infinite;
 }
 
 .badge-top {
-  top: -20px;
-  left: -20px;
-  animation-delay: 0s;
+  bottom: 120px;
+  left: 5%;
+  animation: float-left 6s ease-in-out infinite;
 }
 
 .badge-bottom {
-  bottom: 20px;
-  right: -20px;
-  animation-delay: 2s;
+  bottom: 120px;
+  right: 5%;
+  animation: float-right 6s ease-in-out infinite;
 }
 
 .badge-icon {
@@ -687,19 +701,32 @@ section {
 
 .badge-label {
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.6);
   font-weight: 500;
+  margin-bottom: 2px;
 }
 
 .badge-val {
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--text-main);
+  color: #ffffff;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+@keyframes float-left {
+  0%, 100% { transform: translateY(0) rotate(1deg); }
+  50% { transform: translateY(-15px) rotate(-1deg); }
+}
+
+@keyframes float-right {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-15px) rotate(1deg); }
+}
+
+/* Hide floating badges and adjust sizes on medium/small viewports */
+@media (max-width: 992px) {
+  .hero-floating-badges-container {
+    display: none;
+  }
 }
 
 /* ==========================================
@@ -1670,9 +1697,40 @@ section {
     display: block;
   }
   
+  .hero-section {
+    padding-top: 140px;
+    padding-bottom: 80px;
+  }
+
+  .hero-content {
+    padding: 32px 20px;
+    margin: 0 16px;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 24px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .hero-actions a {
+    width: 100%;
+    text-align: center;
+  }
+  
   .hero-checklist {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     align-items: center;
+    gap: 12px;
     max-width: 320px;
   }
   
